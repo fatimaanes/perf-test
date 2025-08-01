@@ -1,0 +1,317 @@
+{
+    "benchmarks.DataStructureSuite.time_dict_creation": {
+        "code": "class DataStructureSuite:\n    def time_dict_creation(self):\n        \"\"\"Time creating a dictionary\"\"\"\n        return {i: i for i in range(self.size)}\n\n    def setup(self):\n        self.size = 1000\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "min_run_count": 2,
+        "name": "benchmarks.DataStructureSuite.time_dict_creation",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "36e4ae2f8ff2d59850e7cd6c2330969c268f0f87c6ee913abbc079af8ad6d159",
+        "warmup_time": -1
+    },
+    "benchmarks.DataStructureSuite.time_dict_search": {
+        "code": "class DataStructureSuite:\n    def time_dict_search(self):\n        \"\"\"Time searching in a dictionary\"\"\"\n        for key in self.search_keys:\n            key in self.dict_data\n\n    def setup(self):\n        self.size = 1000\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "min_run_count": 2,
+        "name": "benchmarks.DataStructureSuite.time_dict_search",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "1da6d1eaa9f7b89c67ce5df6b69f8dbb140d294173408a76653c8a5fc6911e32",
+        "warmup_time": -1
+    },
+    "benchmarks.DataStructureSuite.time_list_append": {
+        "code": "class DataStructureSuite:\n    def time_list_append(self):\n        \"\"\"Time appending to a list\"\"\"\n        result = []\n        for i in range(100):\n            result.append(i)\n\n    def setup(self):\n        self.size = 1000\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "min_run_count": 2,
+        "name": "benchmarks.DataStructureSuite.time_list_append",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "1cbf565d0092b8ad162d4503dff17a606e9bffae33f8cbbb847bcdbe3ec75f8b",
+        "warmup_time": -1
+    },
+    "benchmarks.DataStructureSuite.time_list_creation": {
+        "code": "class DataStructureSuite:\n    def time_list_creation(self):\n        \"\"\"Time creating a list\"\"\"\n        return list(range(self.size))\n\n    def setup(self):\n        self.size = 1000\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "min_run_count": 2,
+        "name": "benchmarks.DataStructureSuite.time_list_creation",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "399234f2c753e3a3cddea05667a1c6c498ff98ab2839f3b4710050e7aeacd38f",
+        "warmup_time": -1
+    },
+    "benchmarks.DataStructureSuite.time_list_extend": {
+        "code": "class DataStructureSuite:\n    def time_list_extend(self):\n        \"\"\"Time extending a list\"\"\"\n        result = []\n        result.extend(range(100))\n\n    def setup(self):\n        self.size = 1000\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "min_run_count": 2,
+        "name": "benchmarks.DataStructureSuite.time_list_extend",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "ea92cffc36e8f3f8534c5a8c84f19d9eb43979c3f12bf60eeb0cb4fb03f45876",
+        "warmup_time": -1
+    },
+    "benchmarks.DataStructureSuite.time_list_search": {
+        "code": "class DataStructureSuite:\n    def time_list_search(self):\n        \"\"\"Time searching in a list\"\"\"\n        for key in self.search_keys:\n            key in self.data\n\n    def setup(self):\n        self.size = 1000\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "min_run_count": 2,
+        "name": "benchmarks.DataStructureSuite.time_list_search",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "9b401e64c5ae184edcb13d1c9fb7024777e547754e6743cdf1b471ba9b80acc4",
+        "warmup_time": -1
+    },
+    "benchmarks.MathSuite.time_pow_operations": {
+        "code": "class MathSuite:\n    def time_pow_operations(self, size):\n        \"\"\"Time power operations\"\"\"\n        return [x ** 2 for x in self.numbers]\n\n    def setup(self, size):\n        self.numbers = [random.random() for _ in range(size)]",
+        "min_run_count": 2,
+        "name": "benchmarks.MathSuite.time_pow_operations",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000",
+                "5000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "14f5a0bd294eb27caac4a48ea254440aa778c25873836c108d81a3e87b5cc4b4",
+        "warmup_time": -1
+    },
+    "benchmarks.MathSuite.time_sqrt_operations": {
+        "code": "class MathSuite:\n    def time_sqrt_operations(self, size):\n        \"\"\"Time square root operations\"\"\"\n        return [math.sqrt(x) for x in self.numbers]\n\n    def setup(self, size):\n        self.numbers = [random.random() for _ in range(size)]",
+        "min_run_count": 2,
+        "name": "benchmarks.MathSuite.time_sqrt_operations",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000",
+                "5000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "152ab81ccd7e94756286e4ae18856d1c1166a2999988714ef0a5a8fc71433b94",
+        "warmup_time": -1
+    },
+    "benchmarks.MathSuite.time_sum_builtin": {
+        "code": "class MathSuite:\n    def time_sum_builtin(self, size):\n        \"\"\"Time built-in sum function\"\"\"\n        return sum(self.numbers)\n\n    def setup(self, size):\n        self.numbers = [random.random() for _ in range(size)]",
+        "min_run_count": 2,
+        "name": "benchmarks.MathSuite.time_sum_builtin",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000",
+                "5000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "153dea6d6bf7726f1f4acb994bd5ba28a90f3312e2e41557eb5f4690e46a6713",
+        "warmup_time": -1
+    },
+    "benchmarks.MathSuite.time_sum_manual": {
+        "code": "class MathSuite:\n    def time_sum_manual(self, size):\n        \"\"\"Time manual sum calculation\"\"\"\n        total = 0\n        for num in self.numbers:\n            total += num\n        return total\n\n    def setup(self, size):\n        self.numbers = [random.random() for _ in range(size)]",
+        "min_run_count": 2,
+        "name": "benchmarks.MathSuite.time_sum_manual",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000",
+                "5000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "30c86c680d57249ba497eee060da7a60933cb8820d10d70f8b6a090e81a4290c",
+        "warmup_time": -1
+    },
+    "benchmarks.MemorySuite.mem_dict_large": {
+        "code": "class MemorySuite:\n    def mem_dict_large(self):\n        \"\"\"Memory usage of a large dictionary\"\"\"\n        return {i: i for i in range(10000)}",
+        "name": "benchmarks.MemorySuite.mem_dict_large",
+        "param_names": [],
+        "params": [],
+        "type": "memory",
+        "unit": "bytes",
+        "version": "b297a055e5243acb962d6d2319803403bcc29ba7ec9ba07ba9626ea80f94a11e"
+    },
+    "benchmarks.MemorySuite.mem_dict_small": {
+        "code": "class MemorySuite:\n    def mem_dict_small(self):\n        \"\"\"Memory usage of a small dictionary\"\"\"\n        return {i: i for i in range(100)}",
+        "name": "benchmarks.MemorySuite.mem_dict_small",
+        "param_names": [],
+        "params": [],
+        "type": "memory",
+        "unit": "bytes",
+        "version": "ee791e997012a91af41cdbe7162ae7218dae48f66048d2eeddfe04e5fcb6a4a2"
+    },
+    "benchmarks.MemorySuite.mem_large_list": {
+        "code": "class MemorySuite:\n    def mem_large_list(self):\n        \"\"\"Memory usage of a large list\"\"\"\n        return [0] * 10000",
+        "name": "benchmarks.MemorySuite.mem_large_list",
+        "param_names": [],
+        "params": [],
+        "type": "memory",
+        "unit": "bytes",
+        "version": "cfa5c6d47114bd685cb3249729c1883edf751bab8e2311e8b5541d2c90536ca7"
+    },
+    "benchmarks.MemorySuite.mem_nested_structure": {
+        "code": "class MemorySuite:\n    def mem_nested_structure(self):\n        \"\"\"Memory usage of nested data structures\"\"\"\n        return [[i for i in range(10)] for _ in range(100)]",
+        "name": "benchmarks.MemorySuite.mem_nested_structure",
+        "param_names": [],
+        "params": [],
+        "type": "memory",
+        "unit": "bytes",
+        "version": "3b1c2cc99df0803a64cc4aae792b8695c2536451cc1c2ca564995296a3581066"
+    },
+    "benchmarks.MemorySuite.mem_small_list": {
+        "code": "class MemorySuite:\n    def mem_small_list(self):\n        \"\"\"Memory usage of a small list\"\"\"\n        return [0] * 100",
+        "name": "benchmarks.MemorySuite.mem_small_list",
+        "param_names": [],
+        "params": [],
+        "type": "memory",
+        "unit": "bytes",
+        "version": "ccb5d3848037c3ec6e8e2239181bcad8cbb89c19d0b729846662dcdd0f29ae8e"
+    },
+    "benchmarks.StringSuite.time_string_join": {
+        "code": "class StringSuite:\n    def time_string_join(self):\n        \"\"\"Time string joining\"\"\"\n        return ' '.join(self.words)\n\n    def setup(self):\n        self.words = ['hello', 'world', 'python', 'benchmark'] * 100\n        self.text = ' '.join(self.words)",
+        "min_run_count": 2,
+        "name": "benchmarks.StringSuite.time_string_join",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "fe7f8c92dd08f148c055b8cfa741adf13cfd8ba582bf7ea39cde2101e7d1387d",
+        "warmup_time": -1
+    },
+    "benchmarks.StringSuite.time_string_replace": {
+        "code": "class StringSuite:\n    def time_string_replace(self):\n        \"\"\"Time string replacement\"\"\"\n        return self.text.replace('hello', 'hi')\n\n    def setup(self):\n        self.words = ['hello', 'world', 'python', 'benchmark'] * 100\n        self.text = ' '.join(self.words)",
+        "min_run_count": 2,
+        "name": "benchmarks.StringSuite.time_string_replace",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "1b646dabfa5fffbc317497c7519e6f90c4ab37d67aa72c61519606c07761b3a1",
+        "warmup_time": -1
+    },
+    "benchmarks.StringSuite.time_string_split": {
+        "code": "class StringSuite:\n    def time_string_split(self):\n        \"\"\"Time string splitting\"\"\"\n        return self.text.split()\n\n    def setup(self):\n        self.words = ['hello', 'world', 'python', 'benchmark'] * 100\n        self.text = ' '.join(self.words)",
+        "min_run_count": 2,
+        "name": "benchmarks.StringSuite.time_string_split",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "2df68d2c87ccf1e242d1623deae4278058c849e02d7ea9f5b893af782c0abd61",
+        "warmup_time": -1
+    },
+    "benchmarks.StringSuite.time_string_upper": {
+        "code": "class StringSuite:\n    def time_string_upper(self):\n        \"\"\"Time string upper case conversion\"\"\"\n        return [word.upper() for word in self.words]\n\n    def setup(self):\n        self.words = ['hello', 'world', 'python', 'benchmark'] * 100\n        self.text = ' '.join(self.words)",
+        "min_run_count": 2,
+        "name": "benchmarks.StringSuite.time_string_upper",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "e62b4fab28ecf3dd4da39f2802137f989029591917bf4aa7170e2fa82138b458",
+        "warmup_time": -1
+    },
+    "benchmarks.TrackingSuite.track_fibonacci_result": {
+        "code": "class TrackingSuite:\n    def track_fibonacci_result(self):\n        \"\"\"Track the 20th Fibonacci number\"\"\"\n        a, b = 0, 1\n        for _ in range(20):\n            a, b = b, a + b\n        return a",
+        "name": "benchmarks.TrackingSuite.track_fibonacci_result",
+        "param_names": [],
+        "params": [],
+        "type": "track",
+        "unit": "value",
+        "version": "c96ad2d9fdb643f0e84f64fa5190e17d7140dbd34e547af40cc3edf525ef5fb1"
+    },
+    "benchmarks.TrackingSuite.track_list_length": {
+        "code": "class TrackingSuite:\n    def track_list_length(self):\n        \"\"\"Track length of generated list\"\"\"\n        return len([x for x in range(50) if x % 2 == 0])",
+        "name": "benchmarks.TrackingSuite.track_list_length",
+        "param_names": [],
+        "params": [],
+        "type": "track",
+        "unit": "items",
+        "version": "40f08e5ac969dec4a82cf906da1fbfc5e7ed2f6691d0bf0471c610323ff81393"
+    },
+    "benchmarks.TrackingSuite.track_prime_count": {
+        "code": "class TrackingSuite:\n    def track_prime_count(self):\n        \"\"\"Track count of prime numbers up to 100\"\"\"\n        def is_prime(n):\n            if n < 2:\n                return False\n            for i in range(2, int(n ** 0.5) + 1):\n                if n % i == 0:\n                    return False\n            return True\n    \n        return sum(1 for i in range(2, 100) if is_prime(i))",
+        "name": "benchmarks.TrackingSuite.track_prime_count",
+        "param_names": [],
+        "params": [],
+        "type": "track",
+        "unit": "count",
+        "version": "69b9bbd584cafe28cd9fe24aadecbbebe0bff064eb38aa0b3e11c51e6f4d0efa"
+    },
+    "version": 2
+}
