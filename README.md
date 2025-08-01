@@ -27,14 +27,14 @@ For performance regression:
 ```bash
 # Make your changes to benchmarks/benchmarks.py
 git add -A
-git commit -m "v2.6.0: Your performance change description"
-git tag v2.6.0
+git commit -m "v2.6.0: Your performance change description"  # Use your version number
+git tag v2.6.0  # Use your own version number (v2.6.0, v2.7.0, etc.)
 ```
 
 ### Step 3: Run benchmarks on the new version
 
 ```bash
-asv run v2.6.0^!
+asv run v2.6.0^!  # Replace with your version number
 ```
 
 ### Step 4: Update graphs
@@ -48,22 +48,12 @@ asv preview
 
 Open http://localhost:8080 to see the new data point on the graphs.
 
-## Examples of Changes
-
-**To create improvement:**
-- Change `range(5000)` to `range(3000)` 
-- Change `for i in range(100)` to `for i in range(50)`
-
-**To create regression:**
-- Change `range(1000)` to `range(2000)`
-- Add expensive calculations like nested loops
-
 ## Current Benchmark History
 
-- v2.1.0: Initial game engine benchmarks
+- v2.1.0: Initial test benchmarks
 - v2.2.0: Performance optimizations 
 - v2.3.0: Feature expansion (regression)
 - v2.4.0: Partial recovery
 - v2.5.0: Major optimization breakthrough
 
-Each version shows different performance patterns in the ASV graphs.
+Each  shows different performance patterns in the ASV graphs

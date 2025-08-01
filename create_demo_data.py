@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-"""
-Create demo historical benchmark data for ASV to display graphs.
-This generates fake results across multiple commits to demonstrate ASV's graphing capabilities.
-"""
 
 import json
 import os
@@ -10,24 +6,21 @@ import time
 import random
 from datetime import datetime, timedelta
 
-# Create results directory structure
 results_dir = ".asv/results/fanes-newton"
 os.makedirs(results_dir, exist_ok=True)
 
-# Generate fake commit hashes and dates for the past 30 days
 commits = []
 base_date = datetime.now() - timedelta(days=30)
 
-for i in range(10):  # 10 commits over 30 days
+for i in range(10):
     commit_date = base_date + timedelta(days=i*3)
-    commit_hash = f"abcd{i:04d}" + "f" * 36  # Fake 40-char hash
+    commit_hash = f"abcd{i:04d}" + "f" * 36
     commits.append({
         "hash": commit_hash,
         "date": int(commit_date.timestamp()),
         "index": i
     })
 
-# Base benchmark results with some realistic values
 base_results = {
     "benchmarks.DataStructureSuite.time_dict_creation": 0.000045,
     "benchmarks.DataStructureSuite.time_dict_search": 0.000005,
@@ -69,33 +62,26 @@ base_results = {
     "benchmarks.TrackingSuite.track_prime_count": 25
 }
 
-# Create individual result files for each commit
 for commit in commits:
     result_file = f"{results_dir}/{commit['hash'][:8]}.json"
     
-    # Create variations in the results to show performance changes over time
     results = {}
     
     for benchmark, base_value in base_results.items():
-        if isinstance(base_value, dict):  # Parameterized benchmarks
+        if isinstance(base_value, dict):  
             results[benchmark] = {}
             for param, value in base_value.items():
-                # Add some realistic variation (±20%)
                 variation = 1.0 + (random.random() - 0.5) * 0.4
-                # Add trend (slight improvement over time)
-                trend = 1.0 - (commit['index'] * 0.02)  # 2% improvement per commit
+                trend = 1.0 - (commit['index'] * 0.02)
                 results[benchmark][param] = [value * variation * trend]
         else:
-            # Add some realistic variation (±20%)
             variation = 1.0 + (random.random() - 0.5) * 0.4
-            # Add trend (slight improvement over time for timing, stable for others)
             if 'time_' in benchmark:
-                trend = 1.0 - (commit['index'] * 0.02)  # 2% improvement per commit
+                trend = 1.0 - (commit['index'] * 0.02)  
             else:
-                trend = 1.0  # Memory and tracking stay stable
+                trend = 1.0  
             results[benchmark] = [base_value * variation * trend]
     
-    # Create the result file structure
     result_data = {
         "commit_hash": commit['hash'],
         "date": commit['date'],
