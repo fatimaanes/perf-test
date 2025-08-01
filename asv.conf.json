@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "project": "Demo Python Benchmarks",
+    "project": "omniperf-prototype",
     "project_url": "https://github.com/fatimaanes/perf-test",
     "repo": ".",
     "environment_type": "virtualenv",
