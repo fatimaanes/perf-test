@@ -1,0 +1,9 @@
+{
+    "arch": "x86_64",
+    "cpu": "Intel Xeon Processor (Icelake)",
+    "machine": "fanes-newton",
+    "num_cpu": "16",
+    "os": "Linux 5.15.0-131-generic",
+    "ram": "86484360",
+    "version": 1
+}
