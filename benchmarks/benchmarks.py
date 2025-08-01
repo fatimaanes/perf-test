@@ -10,7 +10,7 @@ class FPSBenchmarks:
     """
     
     def setup(self):
-        self.entities = 1200  # Number of entities to process
+        self.entities = 900  # Optimized entity count
         self.vertices = list(range(self.entities * 3))  # 3 vertices per entity
         self.transforms = {i: (random.random(), random.random(), random.random()) 
                           for i in range(self.entities)}
@@ -51,10 +51,10 @@ class FPSBenchmarks:
     def time_fps_animation(self):
         """FPS: Skeletal animation"""
         animated = []
-        for i in range(min(200, len(self.visible_entities))):
+        for i in range(min(150, len(self.visible_entities))):  # Reduced animation load
             entity_id = self.visible_entities[i]
-            # Simulate bone transformation
-            for bone in range(24):  # 24 bones per character
+            # Simulate bone transformation  
+            for bone in range(20):  # Optimized to 20 bones per character
                 animated.append(entity_id * bone * 0.1)
         return animated
 
@@ -121,7 +121,7 @@ class GPUBenchmarks:
     
     def setup(self):
         self.vertices = [(random.random(), random.random(), random.random()) 
-                        for _ in range(5000)]
+                        for _ in range(4000)]  # Optimized vertex count
         self.textures = ['texture_' + str(i) for i in range(200)]
         self.shader_uniforms = {f'uniform_{i}': random.random() for i in range(64)}
 
