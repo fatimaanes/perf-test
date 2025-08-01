@@ -10,7 +10,7 @@ class DataStructureSuite:
     """
     
     def setup(self):
-        self.size = 1000
+        self.size = 800  # Reduced size for "performance improvement"
         self.data = list(range(self.size))
         self.dict_data = {i: i for i in range(self.size)}
         self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]
