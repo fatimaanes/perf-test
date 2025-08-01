@@ -75,10 +75,16 @@ class CPUBenchmarks:
     def time_cpu_ai_pathfinding(self, entities):
         """CPU: AI pathfinding calculations"""
         paths = []
-        for agent in self.ai_agents[:min(100, len(self.ai_agents))]:
-            # Simulate A* pathfinding
+        for agent in self.ai_agents[:min(200, len(self.ai_agents))]:  # More AI agents!
+            # Simulate expensive A* pathfinding with obstacle checking
             start_x, start_y = agent['pos']
             target_x, target_y = 50.0, 50.0  # Target position
+            # Expensive pathfinding simulation
+            for obstacle in range(25):  # Check 25 obstacles per agent
+                obstacle_x, obstacle_y = random.random() * 100, random.random() * 100
+                dist_to_obstacle = math.sqrt((obstacle_x - start_x)**2 + (obstacle_y - start_y)**2)
+                if dist_to_obstacle < 10:  # If near obstacle, expensive calculation
+                    paths.append(dist_to_obstacle * math.sin(obstacle) * math.cos(obstacle))
             distance = math.sqrt((target_x - start_x)**2 + (target_y - start_y)**2)
             paths.append(distance)
         return sum(paths)
@@ -165,14 +171,21 @@ class GPUBenchmarks:
         """GPU: Fragment shader simulation"""
         fragments = []
         screen_width, screen_height = 1920, 1080
-        sample_count = 1000  # Sample fragments
+        sample_count = 2000  # More expensive fragment processing!
         for i in range(sample_count):
-            # Simulate fragment processing
+            # Simulate expensive fragment processing with multiple lights
             x = (i % screen_width) / screen_width
             y = (i // screen_width) / screen_height
-            # Simulate lighting calculation
-            light_intensity = math.sin(x * math.pi) * math.cos(y * math.pi)
-            fragments.append(light_intensity)
+            # Simulate complex lighting with 8 light sources
+            total_light = 0
+            for light_id in range(8):  # 8 lights per fragment (expensive!)
+                light_x = (light_id * 0.125) % 1.0
+                light_y = (light_id * 0.25) % 1.0
+                distance = math.sqrt((x - light_x)**2 + (y - light_y)**2)
+                attenuation = 1.0 / (1.0 + distance * distance)
+                light_contribution = math.sin(distance * math.pi * 4) * attenuation
+                total_light += light_contribution
+            fragments.append(total_light)
         return fragments
 
 
