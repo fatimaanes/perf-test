@@ -1,6 +1,6 @@
 {
     "benchmarks.CPUBenchmarks.time_cpu_ai_pathfinding": {
-        "code": "class CPUBenchmarks:\n    def time_cpu_ai_pathfinding(self, entities):\n        \"\"\"CPU: AI pathfinding calculations\"\"\"\n        paths = []\n        for agent in self.ai_agents[:min(100, len(self.ai_agents))]:\n            # Simulate A* pathfinding\n            start_x, start_y = agent['pos']\n            target_x, target_y = 50.0, 50.0  # Target position\n            distance = math.sqrt((target_x - start_x)**2 + (target_y - start_y)**2)\n            paths.append(distance)\n        return sum(paths)\n\n    def setup(self, entities):\n        self.ai_agents = [{'pos': (random.random()*100, random.random()*100),\n                          'health': random.randint(50, 100),\n                          'target': None} for _ in range(entities)]\n        self.physics_objects = [random.random() * 10 for _ in range(entities)]",
+        "code": "class CPUBenchmarks:\n    def time_cpu_ai_pathfinding(self, entities):\n        \"\"\"CPU: AI pathfinding calculations\"\"\"\n        paths = []\n        for agent in self.ai_agents[:min(200, len(self.ai_agents))]:  # More AI agents!\n            # Simulate expensive A* pathfinding with obstacle checking\n            start_x, start_y = agent['pos']\n            target_x, target_y = 50.0, 50.0  # Target position\n            # Expensive pathfinding simulation\n            for obstacle in range(25):  # Check 25 obstacles per agent\n                obstacle_x, obstacle_y = random.random() * 100, random.random() * 100\n                dist_to_obstacle = math.sqrt((obstacle_x - start_x)**2 + (obstacle_y - start_y)**2)\n                if dist_to_obstacle < 10:  # If near obstacle, expensive calculation\n                    paths.append(dist_to_obstacle * math.sin(obstacle) * math.cos(obstacle))\n            distance = math.sqrt((target_x - start_x)**2 + (target_y - start_y)**2)\n            paths.append(distance)\n        return sum(paths)\n\n    def setup(self, entities):\n        self.ai_agents = [{'pos': (random.random()*100, random.random()*100),\n                          'health': random.randint(50, 100),\n                          'target': None} for _ in range(entities)]\n        self.physics_objects = [random.random() * 10 for _ in range(entities)]",
         "min_run_count": 2,
         "name": "benchmarks.CPUBenchmarks.time_cpu_ai_pathfinding",
         "number": 0,
@@ -19,7 +19,7 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "ebf2687177240429f4bc8e1ada16ab4d8874525840f893570fb019c3c324e6f9",
+        "version": "f8506cc1cbd9091766225a9b14da195ba7aa3e3fe131c198316ec238e1318c4b",
         "warmup_time": -1
     },
     "benchmarks.CPUBenchmarks.time_cpu_audio_processing": {
@@ -167,7 +167,7 @@
         "warmup_time": -1
     },
     "benchmarks.GPUBenchmarks.time_gpu_fragment_processing": {
-        "code": "class GPUBenchmarks:\n    def time_gpu_fragment_processing(self):\n        \"\"\"GPU: Fragment shader simulation\"\"\"\n        fragments = []\n        screen_width, screen_height = 1920, 1080\n        sample_count = 1000  # Sample fragments\n        for i in range(sample_count):\n            # Simulate fragment processing\n            x = (i % screen_width) / screen_width\n            y = (i // screen_width) / screen_height\n            # Simulate lighting calculation\n            light_intensity = math.sin(x * math.pi) * math.cos(y * math.pi)\n            fragments.append(light_intensity)\n        return fragments\n\n    def setup(self):\n        self.vertices = [(random.random(), random.random(), random.random())\n                        for _ in range(4000)]  # Optimized vertex count\n        self.textures = ['texture_' + str(i) for i in range(200)]\n        self.shader_uniforms = {f'uniform_{i}': random.random() for i in range(64)}",
+        "code": "class GPUBenchmarks:\n    def time_gpu_fragment_processing(self):\n        \"\"\"GPU: Fragment shader simulation\"\"\"\n        fragments = []\n        screen_width, screen_height = 1920, 1080\n        sample_count = 2000  # More expensive fragment processing!\n        for i in range(sample_count):\n            # Simulate expensive fragment processing with multiple lights\n            x = (i % screen_width) / screen_width\n            y = (i // screen_width) / screen_height\n            # Simulate complex lighting with 8 light sources\n            total_light = 0\n            for light_id in range(8):  # 8 lights per fragment (expensive!)\n                light_x = (light_id * 0.125) % 1.0\n                light_y = (light_id * 0.25) % 1.0\n                distance = math.sqrt((x - light_x)**2 + (y - light_y)**2)\n                attenuation = 1.0 / (1.0 + distance * distance)\n                light_contribution = math.sin(distance * math.pi * 4) * attenuation\n                total_light += light_contribution\n            fragments.append(total_light)\n        return fragments\n\n    def setup(self):\n        self.vertices = [(random.random(), random.random(), random.random())\n                        for _ in range(4000)]  # Optimized vertex count\n        self.textures = ['texture_' + str(i) for i in range(200)]\n        self.shader_uniforms = {f'uniform_{i}': random.random() for i in range(64)}",
         "min_run_count": 2,
         "name": "benchmarks.GPUBenchmarks.time_gpu_fragment_processing",
         "number": 0,
@@ -178,7 +178,7 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "ac80e5fb30ca1514f9f9edfba2796f14c37fb9c629cf1ce32736b85d8a301ae8",
+        "version": "858486f7de7910a7ea1e8573beca879a5e367c09c98fcc86249b11931d7f6c07",
         "warmup_time": -1
     },
     "benchmarks.GPUBenchmarks.time_gpu_texture_sampling": {
