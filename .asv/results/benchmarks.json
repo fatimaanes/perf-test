@@ -1,6 +1,6 @@
 {
     "benchmarks.DataStructureSuite.time_dict_creation": {
-        "code": "class DataStructureSuite:\n    def time_dict_creation(self):\n        \"\"\"Time creating a dictionary\"\"\"\n        return {i: i for i in range(self.size)}\n\n    def setup(self):\n        self.size = 800  # Reduced size for \"performance improvement\"\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "code": "class DataStructureSuite:\n    def time_dict_creation(self):\n        \"\"\"Time creating a dictionary\"\"\"\n        return {i: i for i in range(self.size)}\n\n    def setup(self):\n        self.size = 1200  # Increased size for different performance\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
         "min_run_count": 2,
         "name": "benchmarks.DataStructureSuite.time_dict_creation",
         "number": 0,
@@ -11,11 +11,11 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "181aba53f726dd45f7f7369852c2454cbdc6b4ad9b40df4403755a559d3bf1a3",
+        "version": "5c90b0ac0593f3764df454c4c27b0e795c1e95aaf2153808b571636054521ee6",
         "warmup_time": -1
     },
     "benchmarks.DataStructureSuite.time_dict_search": {
-        "code": "class DataStructureSuite:\n    def time_dict_search(self):\n        \"\"\"Time searching in a dictionary\"\"\"\n        for key in self.search_keys:\n            key in self.dict_data\n\n    def setup(self):\n        self.size = 800  # Reduced size for \"performance improvement\"\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "code": "class DataStructureSuite:\n    def time_dict_search(self):\n        \"\"\"Time searching in a dictionary\"\"\"\n        for key in self.search_keys:\n            key in self.dict_data\n\n    def setup(self):\n        self.size = 1200  # Increased size for different performance\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
         "min_run_count": 2,
         "name": "benchmarks.DataStructureSuite.time_dict_search",
         "number": 0,
@@ -26,11 +26,11 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "e7cbc91bffd853377c50fb6ca1d2fe100d4fc6bc9b6e2062217312829ba3885c",
+        "version": "bab2e34a93bee854eaa9d19a4ac69403e4722a3d8629ad38020a5afee388ece3",
         "warmup_time": -1
     },
     "benchmarks.DataStructureSuite.time_list_append": {
-        "code": "class DataStructureSuite:\n    def time_list_append(self):\n        \"\"\"Time appending to a list\"\"\"\n        result = []\n        for i in range(80):  # Reduced iterations for better performance\n            result.append(i)\n\n    def setup(self):\n        self.size = 800  # Reduced size for \"performance improvement\"\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "code": "class DataStructureSuite:\n    def time_list_append(self):\n        \"\"\"Time appending to a list\"\"\"\n        result = []\n        for i in range(120):  # Increased iterations\n            result.append(i)\n\n    def setup(self):\n        self.size = 1200  # Increased size for different performance\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
         "min_run_count": 2,
         "name": "benchmarks.DataStructureSuite.time_list_append",
         "number": 0,
@@ -41,11 +41,11 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "ff0c10961eb66d5a19ea6169a29f5a34864c1fa25344c6eebc5efd8b8d33993c",
+        "version": "0bb41e169817cf56ecddf29979c3e3ef5f5b779380a62143ccd226e552c69063",
         "warmup_time": -1
     },
     "benchmarks.DataStructureSuite.time_list_creation": {
-        "code": "class DataStructureSuite:\n    def time_list_creation(self):\n        \"\"\"Time creating a list\"\"\"\n        return list(range(self.size))\n\n    def setup(self):\n        self.size = 800  # Reduced size for \"performance improvement\"\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "code": "class DataStructureSuite:\n    def time_list_creation(self):\n        \"\"\"Time creating a list\"\"\"\n        return list(range(self.size))\n\n    def setup(self):\n        self.size = 1200  # Increased size for different performance\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
         "min_run_count": 2,
         "name": "benchmarks.DataStructureSuite.time_list_creation",
         "number": 0,
@@ -56,11 +56,11 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "bc6495e895155dd2c4583beeb30fe39ebd0a6154ebfaacb19f171f250da78f43",
+        "version": "35c04b99653b70d8bb68051d8ed2cdc0fc7ffb1b589148ba80bf3d5605e1249d",
         "warmup_time": -1
     },
     "benchmarks.DataStructureSuite.time_list_extend": {
-        "code": "class DataStructureSuite:\n    def time_list_extend(self):\n        \"\"\"Time extending a list\"\"\"\n        result = []\n        result.extend(range(100))\n\n    def setup(self):\n        self.size = 800  # Reduced size for \"performance improvement\"\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "code": "class DataStructureSuite:\n    def time_list_extend(self):\n        \"\"\"Time extending a list\"\"\"\n        result = []\n        result.extend(range(100))\n\n    def setup(self):\n        self.size = 1200  # Increased size for different performance\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
         "min_run_count": 2,
         "name": "benchmarks.DataStructureSuite.time_list_extend",
         "number": 0,
@@ -71,11 +71,11 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "ccaa0e0bbe91d14291819a403039dce64c32ae74ccd8ca351eaa703744a48df6",
+        "version": "42ec22912d82180ff068649b37397cab38dea53f1a6ffb7c16f7f02259ec2f48",
         "warmup_time": -1
     },
     "benchmarks.DataStructureSuite.time_list_search": {
-        "code": "class DataStructureSuite:\n    def time_list_search(self):\n        \"\"\"Time searching in a list\"\"\"\n        for key in self.search_keys:\n            key in self.data\n\n    def setup(self):\n        self.size = 800  # Reduced size for \"performance improvement\"\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
+        "code": "class DataStructureSuite:\n    def time_list_search(self):\n        \"\"\"Time searching in a list\"\"\"\n        for key in self.search_keys:\n            key in self.data\n\n    def setup(self):\n        self.size = 1200  # Increased size for different performance\n        self.data = list(range(self.size))\n        self.dict_data = {i: i for i in range(self.size)}\n        self.search_keys = [random.randint(0, self.size-1) for _ in range(100)]",
         "min_run_count": 2,
         "name": "benchmarks.DataStructureSuite.time_list_search",
         "number": 0,
@@ -86,7 +86,7 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "2c7ef43edbb1624dfbf093fb540488b1894351ab0b95c2729883b62a75e64325",
+        "version": "d784e22f8f05233d8173d6de278a235592889a443c1cc62a59dc222fab66eefc",
         "warmup_time": -1
     },
     "benchmarks.MathSuite.time_pow_operations": {
