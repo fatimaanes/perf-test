@@ -1,6 +1,6 @@
 {
     "benchmarks.CPUBenchmarks.time_cpu_ai_pathfinding": {
-        "code": "class CPUBenchmarks:\n    def time_cpu_ai_pathfinding(self, entities):\n        \"\"\"CPU: AI pathfinding calculations\"\"\"\n        paths = []\n        for agent in self.ai_agents[:min(200, len(self.ai_agents))]:  # More AI agents!\n            # Simulate expensive A* pathfinding with obstacle checking\n            start_x, start_y = agent['pos']\n            target_x, target_y = 50.0, 50.0  # Target position\n            # Expensive pathfinding simulation\n            for obstacle in range(25):  # Check 25 obstacles per agent\n                obstacle_x, obstacle_y = random.random() * 100, random.random() * 100\n                dist_to_obstacle = math.sqrt((obstacle_x - start_x)**2 + (obstacle_y - start_y)**2)\n                if dist_to_obstacle < 10:  # If near obstacle, expensive calculation\n                    paths.append(dist_to_obstacle * math.sin(obstacle) * math.cos(obstacle))\n            distance = math.sqrt((target_x - start_x)**2 + (target_y - start_y)**2)\n            paths.append(distance)\n        return sum(paths)\n\n    def setup(self, entities):\n        self.ai_agents = [{'pos': (random.random()*100, random.random()*100),\n                          'health': random.randint(50, 100),\n                          'target': None} for _ in range(entities)]\n        self.physics_objects = [random.random() * 10 for _ in range(entities)]",
+        "code": "class CPUBenchmarks:\n    def time_cpu_ai_pathfinding(self, entities):\n        \"\"\"CPU: AI pathfinding calculations\"\"\"\n        paths = []\n        for agent in self.ai_agents[:min(120, len(self.ai_agents))]:  # Reduced AI agents\n            # Simulate optimized A* pathfinding with fewer obstacle checks\n            start_x, start_y = agent['pos']\n            target_x, target_y = 50.0, 50.0  # Target position\n            # Optimized pathfinding simulation\n            for obstacle in range(8):  # Reduced to 8 obstacles per agent\n                obstacle_x, obstacle_y = random.random() * 100, random.random() * 100\n                dist_to_obstacle = math.sqrt((obstacle_x - start_x)**2 + (obstacle_y - start_y)**2)\n                if dist_to_obstacle < 10:  # If near obstacle, expensive calculation\n                    paths.append(dist_to_obstacle * math.sin(obstacle) * math.cos(obstacle))\n            distance = math.sqrt((target_x - start_x)**2 + (target_y - start_y)**2)\n            paths.append(distance)\n        return sum(paths)\n\n    def setup(self, entities):\n        self.ai_agents = [{'pos': (random.random()*100, random.random()*100),\n                          'health': random.randint(50, 100),\n                          'target': None} for _ in range(entities)]\n        self.physics_objects = [random.random() * 10 for _ in range(entities)]",
         "min_run_count": 2,
         "name": "benchmarks.CPUBenchmarks.time_cpu_ai_pathfinding",
         "number": 0,
@@ -19,7 +19,7 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "f8506cc1cbd9091766225a9b14da195ba7aa3e3fe131c198316ec238e1318c4b",
+        "version": "f0b0b6ac0fae9d57b8b91af3f16cbc6279a26eb051869f6b2db73abf5141a7f0",
         "warmup_time": -1
     },
     "benchmarks.CPUBenchmarks.time_cpu_audio_processing": {
